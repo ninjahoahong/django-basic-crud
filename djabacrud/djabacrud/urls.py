@@ -6,6 +6,7 @@ urlpatterns = patterns('',
                        # blog views
                        url(r'^$', index),
                        url(r'^blog/(?P<post_id>\d+)$', post),
+                       url(r'^blog/edit/(?P<post_id>\d+)$', post_edit),
                        url(r'^blog/delete/(?P<post_id>\d+)$', post_delete),
                        url(r'^blog/create/$', post_new),
                        # admin views
