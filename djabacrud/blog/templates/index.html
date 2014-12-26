@@ -1,0 +1,21 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Blog Archive {% endblock %}
+
+{% block content %}
+<h1> My Blog Posts </h1>
+{% for post in posts %}
+<div class="post">
+    <h2>
+        <a href="#">
+            {{post.title}}
+        </a>
+    </h2>
+    <p>{{post.body}}</p>
+    <p>
+    Last updated on: 
+    {{post.last_updated}}
+    </p>
+</div>
+{% endfor %}
+{% endblock %}
