@@ -26,3 +26,9 @@ def post_new(request):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(redirect_url)
+
+
+def post(request, post_id):
+    post = Post.objects.get(id=post_id)
+    return render_to_response("post/post.html", {'post': post},
+                              context_instance=RequestContext(request))
