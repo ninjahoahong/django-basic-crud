@@ -32,3 +32,10 @@ def post(request, post_id):
     post = Post.objects.get(id=post_id)
     return render_to_response("post/post.html", {'post': post},
                               context_instance=RequestContext(request))
+
+
+def post_delete(request, post_id):
+    redirect_url = "/"
+    post = Post.objects.get(id=post_id)
+    post.delete()
+    return HttpResponseRedirect(redirect_url)
