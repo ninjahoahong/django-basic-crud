@@ -13,9 +13,10 @@ urlpatterns = patterns('',
                        url(r'^blog/create/$', post_new),
 
                        # RESTful API
-                       url(r'^api/blog/$', PostList.as_view()),
+                       url(r'^api/blog/$', PostList.as_view(),
+                           name="post-list"),
                        url(r'^api/blog/(?P<pk>\d+)$',
-                           PostDetail.as_view()),
+                           PostDetail.as_view(), name="post-detail"),
 
                        # admin views
                        url(r'^admin/', include(admin.site.urls)),

@@ -33,7 +33,7 @@ class BasePostTests(TestCase):
 
     # Create post with empty title or body will be fail
     def test_create_empty_post(self):
-        print "Try to create post with empty title or body \n" \
+        print "\nTry to create post with empty title or body \n" \
             "Expect form failure since default the fields are required\n"
         response = self.client.post(self.url, {
             "title": "",
@@ -44,9 +44,9 @@ class BasePostTests(TestCase):
         self.assertFormError(response, "form", "body",
                              "This field is required.")
 
-    # Create success post with redirect to the index
+        # Create success post with redirect to the index
     def test_create_post(self):
-        print "Try to create a valid post\n" \
+        print "\nTry to create a valid post\n" \
             "Expect to get a success redirect to index\n"
         response = self.client.post(self.url, {
             "title": "test_title_1",
@@ -54,4 +54,15 @@ class BasePostTests(TestCase):
             })
         self.assertRedirects(response, reverse(index))
 
+
 # This section will be the api test
+class APIPostTests(APITestCase):
+    def test_create_post(self):
+        print "\nTry to create a valid post from api\n" \
+            "Expect to get the right title and body\n"
+        url = reverse("post-list")
+        data = {"body": u"test_api_1 body", "title": u"test_api_1"}
+        response = self.client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.data["title"], data["title"])
+        self.assertEqual(response.data["body"], data["body"])
