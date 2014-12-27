@@ -26,6 +26,9 @@ def post_new(request):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(redirect_url)
+        else:
+            return render_to_response("post/post_create.html", {"form": form},
+                                      context_instance=RequestContext(request))
 
 
 def post(request, post_id):
