@@ -1,6 +1,8 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from blog.views import *
+from blog.rest_views import *
+
 
 urlpatterns = patterns('',
                        # blog views
@@ -9,6 +11,10 @@ urlpatterns = patterns('',
                        url(r'^blog/edit/(?P<post_id>\d+)$', post_edit),
                        url(r'^blog/delete/(?P<post_id>\d+)$', post_delete),
                        url(r'^blog/create/$', post_new),
+
+                       # RESTful API
+                       url(r'^api/blog/$', PostList.as_view()),
+
                        # admin views
                        url(r'^admin/', include(admin.site.urls)),
                        )
