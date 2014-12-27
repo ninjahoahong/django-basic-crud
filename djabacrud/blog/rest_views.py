@@ -8,3 +8,10 @@ class PostList(generics.ListAPIView):
 
     def get_queryset(self):
         return Post.objects.filter(published=True)
+
+
+class PostDetail(generics.ListAPIView):
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        return Post.objects.filter(id=self.kwargs['post_id'])
