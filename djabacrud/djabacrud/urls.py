@@ -14,7 +14,7 @@ urlpatterns = patterns('',
 
                        # RESTful API
                        url(r'^api/blog/$', PostList.as_view()),
-                       url(r'^api/blog/(?P<post_id>\d+)$',
+                       url(r'^api/blog/(?P<pk>\d+)$',
                            PostDetail.as_view()),
 
                        # admin views
