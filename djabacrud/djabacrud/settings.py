@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     # include rest_framework and blog
     'rest_framework',
     'blog',
+    'api',
 )
 
 MIDDLEWARE_CLASSES = (
