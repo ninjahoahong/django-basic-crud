@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from blog.views import *
-from blog.rest_views import *
+from blog.views import index, post, post_edit, post_new, post_delete
+from blog.rest_views import PostList, PostDetail
 
 
 urlpatterns = patterns('',

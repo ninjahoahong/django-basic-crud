@@ -3,7 +3,7 @@ from rest_framework.test import APITestCase
 from rest_framework import status
 from django.core.urlresolvers import reverse
 from blog.models import Post
-from blog.views import *
+from blog.views import index
 
 # Create your tests here.
 
