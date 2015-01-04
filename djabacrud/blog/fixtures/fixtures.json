@@ -1,0 +1,42 @@
+[
+{
+    "fields": {
+        "body": "testing testing body",
+        "published": true,
+        "last_updated": "2015-01-05T13:45:05.908Z",
+        "title": "testing testing"
+    },
+    "model": "blog.post",
+    "pk": 5
+},
+{
+    "fields": {
+        "body": "test the title body",
+        "published": true,
+        "last_updated": "2015-01-05T13:45:19.459Z",
+        "title": "test the title"
+    },
+    "model": "blog.post",
+    "pk": 6
+},
+{
+    "fields": {
+        "body": "delete test body",
+        "published": true,
+        "last_updated": "2015-01-05T13:45:33.558Z",
+        "title": "delete test"
+    },
+    "model": "blog.post",
+    "pk": 7
+},
+{
+    "fields": {
+        "body": "update test body",
+        "published": true,
+        "last_updated": "2015-01-05T13:45:45.861Z",
+        "title": "update test"
+    },
+    "model": "blog.post",
+    "pk": 8
+}
+]
