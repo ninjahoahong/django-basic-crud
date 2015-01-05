@@ -38,3 +38,13 @@ class APIPostTests(APITestCase):
         print"\n Expect to get the content not found after the delete call\n"
         response = self.client.delete("/api/blog/7")
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+    def test_update_post(self):
+        print "\n Try to update post 7 with the data: \n"
+        print self.client.get("/api/blog/8")
+        print "Expect to get a new title and body after updated"
+        updated_data = {"title": "updated title", "body": "updated test body"}
+        response = self.client.put("/api/blog/8", updated_data, format="json")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data["title"], updated_data["title"])
+        self.assertEqual(response.data["body"], updated_data["body"])
