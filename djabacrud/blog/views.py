@@ -4,6 +4,7 @@ from blog.models import Post
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.http import Http404
 
 # Create your views here.
 
@@ -32,7 +33,10 @@ def post_new(request):
 
 
 def post(request, post_id):
-    post = Post.objects.get(id=post_id)
+    try:
+        post = Post.objects.get(id=post_id)
+    except Post.DoesNotExist:
+        raise Http404
     return render_to_response("post/post.html", {'post': post},
                               context_instance=RequestContext(request))
 
